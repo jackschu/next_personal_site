@@ -16,6 +16,12 @@
   }
 }
 
+@layer base{
+  body{
+      @apply text-[#1a1d16] 
+  }
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
