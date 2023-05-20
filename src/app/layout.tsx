@@ -1,21 +1,18 @@
+import { useEffect } from 'react'
 import './globals.css'
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Playground',
-  description: 'Where jack plays with nextjs',
+    title: 'Playground',
+    description: 'Where jack plays with nextjs',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
-  )
+        <html lang="en">
+            <body className={inter.className}>{children}</body>
+        </html>
+    )
 }

@@ -6,6 +6,12 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --color-background: #ebede8;
+  --color-text-primary: #1a1d16;
+  --color-primary-button: #8a8eb2;
+  --color-secondary-button: #fefcfb;
+  --color-accent: #9cd090;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,21 +19,27 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+
+    /* --color-background: rgb(0, 255, 0);  */
+
+    --color-background: #15110f;
+    --color-text-primary: #fbfaf9;
+    --color-primary-button: #70738f;
+    --color-secondary-button: #ede9ea;
+    --color-accent: #9cd090;
+    /* https://realtimecolors.com/?colors=fbfaf9-15110f-70738f-1e1815-9cd090 */
   }
+}
+
+
+
+body {
+  color: var(--color-text-primary);
+  background: var(--color-background);
 }
 
 @layer base{
   body{
-      @apply text-[#1a1d16] 
+      color: var(--color-text-primary);
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
 }
