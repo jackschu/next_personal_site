@@ -13,7 +13,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="hover:border-accent hover:border-2 rounded-md">
+            <div className="rounded-md hover:border-2 hover:border-accent">
                 <p className="text-5xl ">Jack!</p>
                 <p>(jack)</p>
             </div>
