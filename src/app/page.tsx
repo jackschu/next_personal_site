@@ -8,7 +8,7 @@ export default function Home() {
                     An exercise in&nbsp;
                     <code className="font-mono font-bold">Next.js and tailwind</code>
                 </p>
-                <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center lg:static lg:h-auto lg:w-auto lg:bg-none">
+                <div className="fixed bottom-0 left-0 flex h-auto w-full justify-center border-t-2 py-2 backdrop-blur-sm lg:static  lg:w-auto lg:items-end lg:border-none lg:bg-none">
                     By&nbsp;<span className="italic">Jack Schumann</span>
                 </div>
             </div>
@@ -37,38 +37,37 @@ export default function Home() {
                 </a>
 
                 <a
-                    href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+                    href=""
                     className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
                     <h2 className={`mb-3 text-2xl font-semibold`}>
-                        Learn{' '}
+                        Blog{' '}
                         <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                             -&gt;
                         </span>
                     </h2>
                     <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-                        Learn about Next.js in an interactive course with&nbsp;quizzes!
+                        Lorem ipsum is the best!
                     </p>
                 </a>
 
                 <a
-                    href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+                    href=""
                     className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
                     <h2 className={`mb-3 text-2xl font-semibold`}>
-                        Templates{' '}
+                        Directions{' '}
                         <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                             -&gt;
                         </span>
                     </h2>
                     <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-                        Explore the Next.js 13 playground.
+                        Figure out how to get to and park at my place.
                     </p>
-                    p{' '}
                 </a>
 
                 <a
@@ -78,13 +77,13 @@ export default function Home() {
                     rel="noopener noreferrer"
                 >
                     <h2 className={`mb-3 text-2xl font-semibold`}>
-                        v1{' '}
+                        Version 1{' '}
                         <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
                             -&gt;
                         </span>
                     </h2>
                     <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-                        Visit version 1 of jackschumann.com
+                        Visit the previous version of jackschumann.com
                     </p>
                 </a>
             </div>
