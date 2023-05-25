@@ -12,6 +12,7 @@
   --color-primary-button: #8a8eb2;
   --color-secondary-button: #fefcfb;
   --color-accent: #9cd090;
+  /* https://realtimecolors.com/?colors=1a1d16-ebede8-545355-f2f4f1-9cd090 */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,14 +21,13 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
 
-    /* --color-background: rgb(0, 255, 0);  */
-
+    /* TODO: listen to https://tailwindcss.com/docs/customizing-colors#using-css-variables */
     --color-background: #15110f;
-    --color-text-primary: #fbfaf9;
+    --color-text-primary: #cdccd0;
     --color-primary-button: #70738f;
-    --color-secondary-button: #ede9ea;
+    --color-secondary-button: #1e1815;
     --color-accent: #9cd090;
-    /* https://realtimecolors.com/?colors=fbfaf9-15110f-70738f-1e1815-9cd090 */
+    /* https://realtimecolors.com/?colors=cdccd0-15110f-70738f-1e1815-9cd090 */
   }
 }
 

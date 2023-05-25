@@ -4,21 +4,27 @@ export default function Home() {
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
             <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-                <p className="border-text-primary fixed left-0 top-0 flex w-full justify-center bg-background bg-gradient-to-b from-secondary-button  pb-6 pt-8 backdrop-blur-2xl lg:static lg:w-auto lg:rounded-xl lg:border-2 lg:p-4">
+                <p className="fixed left-0 top-0 flex w-full justify-center  bg-background bg-gradient-to-b from-secondary-button  pb-6 pt-8 backdrop-blur-2xl lg:static lg:w-auto lg:rounded-xl lg:p-4 lg:shadow-md lg:shadow-primary-button">
                     An exercise in&nbsp;
                     <code className="font-mono font-bold">Next.js and tailwind</code>
                 </p>
-                <div className="fixed bottom-0 left-0 flex h-auto w-full justify-center border-t-2 py-2 backdrop-blur-sm lg:static  lg:w-auto lg:items-end lg:border-none lg:bg-none">
+                <div className="fixed bottom-0 left-0 flex h-auto w-full justify-center border-t-2 border-secondary-button py-2 backdrop-blur-sm lg:static  lg:w-auto lg:items-end lg:border-none lg:bg-none">
                     By&nbsp;<span className="italic">Jack Schumann</span>
                 </div>
             </div>
 
-            <div className="rounded-md hover:border-2 hover:border-accent">
-                <p className="text-5xl">Jack!</p>
-                <p>(jack)</p>
+            <div className="flex flex-col items-center gap-8 rounded-md hover:border-2 hover:border-accent lg:flex-row lg:gap-16">
+                <p className="text-5xl">👋 Hi, I'm Jack</p>
+                <Image
+                    className="rounded-full shadow-lg shadow-[#8a8eb2]/40 dark:shadow-[#8a8eb2]/30" //"
+                    src={'/pic.jpg'}
+                    alt={'profile pic of jack'}
+                    width={300}
+                    height={300}
+                />
             </div>
 
-            <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
+            <div className="mb-0 grid text-center lg:grid-cols-4 lg:text-left">
                 <a
                     href="https://github.com/jackschu"
                     className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
@@ -49,7 +55,7 @@ export default function Home() {
                         </span>
                     </h2>
                     <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-                        Lorem ipsum is the best!
+                        Lorem ipsum is the best, but I hope my content will be better.
                     </p>
                 </a>
 
@@ -66,7 +72,7 @@ export default function Home() {
                         </span>
                     </h2>
                     <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-                        Figure out how to get to and park at my place.
+                        Parking instructions are included (maybe)
                     </p>
                 </a>
 
@@ -83,7 +89,7 @@ export default function Home() {
                         </span>
                     </h2>
                     <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-                        Visit the previous version of jackschumann.com
+                        My site had a proto-site, you can go check it out.
                     </p>
                 </a>
             </div>
