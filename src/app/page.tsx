@@ -14,11 +14,16 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="flex flex-col items-center gap-6 rounded-md hover:border-2 hover:border-accent lg:flex-row lg:gap-16">
-                <p className="text-center text-4xl lg:text-5xl">
-                    {"👋 hi i'm "}
-                    {'jack'}
-                </p>
+            <div className="group flex flex-col items-center gap-6 rounded-md lg:flex-row lg:gap-16">
+                <div className="flex flex-row gap-2">
+                    <div className="group-hover:animate-wiggle">
+                        <p className="text-center text-4xl lg:text-5xl">{'👋'}</p>
+                    </div>
+                    <p className="text-center text-4xl lg:text-5xl">
+                        {" hi i'm jack"}
+                        <span class="block h-0.5 max-w-0 bg-accent transition-all duration-500 group-hover:max-w-full"></span>
+                    </p>
+                </div>
                 <Image
                     className="w-80 rounded-full shadow-lg shadow-[#8a8eb2]/40 dark:shadow-[#8a8eb2]/30" //"
                     src={profilePic}

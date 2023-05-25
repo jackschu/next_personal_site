@@ -23,11 +23,11 @@
 
     /* TODO: listen to https://tailwindcss.com/docs/customizing-colors#using-css-variables */
     --color-background: #15110f;
-    --color-text-primary: #cdccd0;
+    --color-text-primary: #c2cccc;
     --color-primary-button: #70738f;
     --color-secondary-button: #1e1815;
     --color-accent: #9cd090;
-    /* https://realtimecolors.com/?colors=cdccd0-15110f-70738f-1e1815-9cd090 */
+    /* https://realtimecolors.com/?colors=#c2cccc-15110f-70738f-1e1815-9cd090 */
   }
 }
 

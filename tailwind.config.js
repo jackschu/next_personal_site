@@ -20,6 +20,16 @@ module.exports = {
                 'secondary-button': 'var(--color-secondary-button)',
                 accent: 'var(--color-accent)',
             },
+
+            keyframes: {
+                wiggle: {
+                    '0%, 100%': { transform: 'rotate(-12deg)' },
+                    '50%': { transform: 'rotate(12deg)' },
+                },
+            },
+            animation: {
+                wiggle: 'wiggle 0.8s ease-in-out infinite',
+            },
         },
     },
     plugins: [],
