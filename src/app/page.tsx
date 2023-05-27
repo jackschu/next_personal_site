@@ -26,7 +26,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="group flex flex-col items-center gap-8 rounded-md pb-12 pt-9 lg:flex-row lg:gap-16 lg:pt-0">
+            <div className="group flex flex-col items-center gap-10 rounded-md pb-14 pt-10 lg:flex-row lg:gap-16 lg:pt-0">
                 <div className="flex flex-row gap-2">
                     <div className="flex flex-col lg:gap-1">
                         <div className="flex flex-row gap-2">
