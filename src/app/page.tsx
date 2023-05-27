@@ -7,7 +7,7 @@ export default function Home() {
             <div className="sticky top-0 z-10 w-full max-w-5xl font-mono text-sm lg:flex">
                 <div className="flex w-full items-center justify-between rounded-b-[24px] border-b-2 border-secondary-button bg-background bg-gradient-to-b from-secondary-background pb-2 pl-5 pr-4 pt-3 backdrop-blur-2xl lg:static lg:rounded-full lg:border-0 lg:p-7 lg:pr-5 lg:shadow-md lg:shadow-primary-button">
                     <div className="flex items-baseline">
-                        <p className="text-2xl lg:text-3xl">jack's site</p>
+                        <p className="text-2xl lg:text-3xl">{"jack's site"}</p>
                         <p className="hidden pl-3 text-sm opacity-70 lg:block">
                             -- an exercise in Next.js and tailwind
                         </p>
