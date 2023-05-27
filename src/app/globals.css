@@ -10,7 +10,8 @@
   --color-background: #ebede8;
   --color-text-primary: #1a1d16;
   --color-primary-button: #8a8eb2;
-  --color-secondary-button: #fefcfb;
+  --color-secondary-background: #fefcfb;
+  --color-secondary-button: #D9D9D9;
   --color-accent: #9cd090;
   /* https://realtimecolors.com/?colors=1a1d16-ebede8-545355-f2f4f1-9cd090 */
 }
@@ -25,9 +26,10 @@
     --color-background: #15110f;
     --color-text-primary: #c2cccc;
     --color-primary-button: #70738f;
-    --color-secondary-button: #1e1815;
+    --color-secondary-background: #1e1815;
+    --color-secondary-button: #D9D9D9; /* TODO */
     --color-accent: #9cd090;
-    /* https://realtimecolors.com/?colors=#c2cccc-15110f-70738f-1e1815-9cd090 */
+    /* https://realtimecolors.com/?colors=c2cccc-15110f-70738f-1e1815-9cd090 */
   }
 }
 

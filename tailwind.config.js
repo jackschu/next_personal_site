@@ -18,6 +18,7 @@ module.exports = {
                 background: 'var(--color-background)',
                 'primary-button': 'var(--color-primary-button)',
                 'secondary-button': 'var(--color-secondary-button)',
+                'secondary-background': 'var(--color-secondary-background)',
                 accent: 'var(--color-accent)',
             },
 

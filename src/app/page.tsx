@@ -3,18 +3,27 @@ import profilePic from '../../public/pic.jpg'
 
 export default function Home() {
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between p-16 pt-24 lg:p-24">
-            <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-                <p className="fixed left-0 top-0 flex w-full justify-center  bg-background bg-gradient-to-b from-secondary-button  pb-6 pt-8 backdrop-blur-2xl lg:static lg:w-auto lg:rounded-xl lg:p-4 lg:shadow-md lg:shadow-primary-button">
-                    an exercise in&nbsp;
-                    <code className="font-mono font-bold">Next.js and tailwind</code>
-                </p>
-                <div className="fixed bottom-0 left-0 flex h-auto w-full justify-center border-t-2 border-secondary-button py-2 backdrop-blur-sm lg:static  lg:w-auto lg:items-end lg:border-none lg:bg-none">
-                    by&nbsp;<span className="italic">jack schumann</span>
+        <main className="flex min-h-screen flex-col items-center justify-between lg:p-24 lg:pt-20">
+            <div className="sticky top-0 z-10 w-full max-w-5xl font-mono text-sm lg:flex">
+                <div className="flex w-full items-center justify-between rounded-b-[24px] border-b-2 border-secondary-button bg-background bg-gradient-to-b from-secondary-background py-3 pl-5 pr-3 backdrop-blur-2xl lg:static lg:rounded-full lg:border-0 lg:p-7 lg:pr-5 lg:shadow-md lg:shadow-primary-button">
+                    <div className="flex items-baseline">
+                        <p className="text-2xl lg:text-3xl">jack's site</p>
+                        <p className="hidden pl-2 text-sm opacity-70 lg:block">
+                            an exercise in Next.js and tailwind
+                        </p>
+                    </div>
+                    <div className="">
+                        <button className="mr-2 rounded-full bg-secondary-button px-2 py-1 text-sm lg:px-4 lg:py-3 lg:text-base">
+                            {'🔦'}
+                        </button>
+                        {/* <button className="rounded-full bg-accent px-2 py-1 text-sm text-primary lg:p-3 lg:text-base">
+                            Sign in
+                        </button> */}
+                    </div>
                 </div>
             </div>
 
-            <div className="group flex flex-col items-center gap-6 rounded-md lg:flex-row lg:gap-16">
+            <div className="group flex flex-col items-center gap-8 rounded-md pb-12 pt-9 lg:flex-row lg:gap-16">
                 <div className="flex flex-row gap-2">
                     <div className="group-hover:animate-wiggle">
                         <p className="text-center text-4xl lg:text-5xl">{'👋'}</p>
