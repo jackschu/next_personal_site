@@ -16,8 +16,8 @@
   /* https://realtimecolors.com/?colors=1a1d16-ebede8-545355-f2f4f1-9cd090 */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
+
+:root.dark {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
@@ -30,12 +30,11 @@
     --color-secondary-button: #58585e;
     --color-accent: #9cd090;
     /* https://realtimecolors.com/?colors=c2cccc-15110f-70738f-1e1815-9cd090 */
-  }
 }
 
 
-
 body {
+  @apply transition-[background-color] duration-200;
   color: var(--color-text-primary);
   background: var(--color-background);
 }
