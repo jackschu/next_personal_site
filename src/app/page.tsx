@@ -21,7 +21,7 @@ export default function Home() {
                     </div>
                     <p className="text-center text-4xl lg:text-5xl">
                         {" hi i'm jack"}
-                        <span class="block h-0.5 max-w-0 bg-accent transition-all duration-500 group-hover:max-w-full"></span>
+                        <span className="block h-0.5 max-w-0 bg-accent transition-all duration-500 group-hover:max-w-full"></span>
                     </p>
                 </div>
                 <Image
