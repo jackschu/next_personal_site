@@ -29,12 +29,6 @@ export default function DarkToggle() {
             className="rounded-full bg-secondary-button px-2 py-1 text-sm [text-shadow:_0_4px_0_rgb(0_0_0_/_40%)] lg:px-4 lg:py-3 lg:text-base"
         >
             {'🔦'}
-            <Script id="darkmode">
-                {/* TODO: remove if we go to non static export */}
-                {
-                    "if(window.matchMedia('(prefers-color-scheme: dark)').matches)document.documentElement.classList.add('dark');"
-                }
-            </Script>
         </button>
     )
 }

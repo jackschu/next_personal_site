@@ -9,8 +9,23 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+    // doing crimes (head, script) to load darkmode before anything renders
     return (
         <html lang="en">
+            <head>
+                <script
+                    id="darkmode"
+                    dangerouslySetInnerHTML={{
+                        __html: `
+;(function () {
+    if (window.matchMedia('(prefers-color-scheme:dark)').matches) {
+        document.documentElement.classList.add('dark')
+    }
+})()
+                  `,
+                    }}
+                />
+            </head>
             <body className={inter.className}>{children}</body>
         </html>
     )
