@@ -5,33 +5,41 @@ export default function Home() {
     return (
         <main className="flex min-h-screen flex-col items-center justify-between lg:p-24 lg:pt-20">
             <div className="sticky top-0 z-10 w-full max-w-5xl font-mono text-sm lg:flex">
-                <div className="flex w-full items-center justify-between rounded-b-[24px] border-b-2 border-secondary-button bg-background bg-gradient-to-b from-secondary-background py-3 pl-5 pr-3 backdrop-blur-2xl lg:static lg:rounded-full lg:border-0 lg:p-7 lg:pr-5 lg:shadow-md lg:shadow-primary-button">
+                <div className="flex w-full items-center justify-between rounded-b-[24px] border-b-2 border-secondary-button bg-background bg-gradient-to-b from-secondary-background pb-2 pl-5 pr-4 pt-3 backdrop-blur-2xl lg:static lg:rounded-full lg:border-0 lg:p-7 lg:pr-5 lg:shadow-md lg:shadow-primary-button">
                     <div className="flex items-baseline">
                         <p className="text-2xl lg:text-3xl">jack's site</p>
-                        <p className="hidden pl-2 text-sm opacity-70 lg:block">
-                            an exercise in Next.js and tailwind
+                        <p className="hidden pl-3 text-sm opacity-70 lg:block">
+                            -- an exercise in Next.js and tailwind
                         </p>
                     </div>
                     <div className="">
-                        <button className="mr-2 rounded-full bg-secondary-button px-2 py-1 text-sm lg:px-4 lg:py-3 lg:text-base">
+                        <button
+                            title="TODO: darkmode switch"
+                            className="rounded-full bg-secondary-button px-2 py-1 text-sm [text-shadow:_0_4px_0_rgb(0_0_0_/_40%)] lg:px-4 lg:py-3 lg:text-base"
+                        >
                             {'🔦'}
                         </button>
-                        {/* <button className="rounded-full bg-accent px-2 py-1 text-sm text-primary lg:p-3 lg:text-base">
+                        {/* <button className="ml-2 rounded-full bg-accent px-2 py-1 text-sm text-primary lg:p-3 lg:text-base">
                             Sign in
                         </button> */}
                     </div>
                 </div>
             </div>
 
-            <div className="group flex flex-col items-center gap-8 rounded-md pb-12 pt-9 lg:flex-row lg:gap-16">
+            <div className="group flex flex-col items-center gap-8 rounded-md pb-12 pt-9 lg:flex-row lg:gap-16 lg:pt-0">
                 <div className="flex flex-row gap-2">
-                    <div className="group-hover:animate-wiggle">
-                        <p className="text-center text-4xl lg:text-5xl">{'👋'}</p>
+                    <div className="flex flex-col lg:gap-1">
+                        <div className="flex flex-row gap-2">
+                            <div className="group-hover:animate-wiggle">
+                                <p className="text-center text-4xl lg:text-5xl">{'👋'}</p>
+                            </div>
+                            <p className="text-center text-4xl lg:text-5xl">
+                                {"hi i'm jack"}
+                                <span className="block h-0.5 max-w-0 bg-accent transition-all duration-500 group-hover:max-w-full"></span>
+                            </p>
+                        </div>
+                        <p className="text-center text-sm opacity-60">(jack schumann)</p>
                     </div>
-                    <p className="text-center text-4xl lg:text-5xl">
-                        {" hi i'm jack"}
-                        <span className="block h-0.5 max-w-0 bg-accent transition-all duration-500 group-hover:max-w-full"></span>
-                    </p>
                 </div>
                 <Image
                     className="w-80 rounded-full shadow-lg shadow-[#8a8eb2]/40 dark:shadow-[#8a8eb2]/30" //"
