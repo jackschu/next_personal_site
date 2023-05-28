@@ -17,6 +17,9 @@
           "appId": "dch0b2yyh7xg4",
           "type": "manual"
         }
+      },
+      "auth": {
+        "nextapp308e33f2": {}
       }
     }
   }
