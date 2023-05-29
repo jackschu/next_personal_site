@@ -26,12 +26,19 @@
     --color-background: #141111;
     --color-text-primary: #c2cccc;
     --color-primary-button: #70738f;
-    --color-secondary-background: #1c1815;
+    --color-secondary-background: #2c2723;
     --color-secondary-button: #58585e;
-    --color-accent: #9cd090;
+    --color-accent: #88b67e;
     /* https://realtimecolors.com/?colors=c2cccc-15110f-70738f-1e1815-9cd090 */
 }
 
+.tooltip {
+  @apply invisible absolute;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply visible z-50 opacity-100;
+}
 
 body {
   @apply transition-[background-color] duration-200;

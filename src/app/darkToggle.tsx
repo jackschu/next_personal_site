@@ -1,6 +1,5 @@
 'use client'
 
-import Script from 'next/script'
 import { useEffect, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 
@@ -25,8 +24,7 @@ export default function DarkToggle() {
     return (
         <button
             onClick={() => setIsDark(!isDark)}
-            title="TODO: darkmode switch"
-            className="rounded-full bg-secondary-button px-2 py-1 text-sm [text-shadow:_0_4px_0_rgb(0_0_0_/_40%)] lg:px-4 lg:py-3 lg:text-base"
+            className="h-7 rounded-full bg-secondary-button px-2 text-sm [text-shadow:_0_4px_0_rgb(0_0_0_/_40%)] lg:h-12 lg:px-4 lg:text-base"
         >
             {'🔦'}
         </button>
