@@ -58,7 +58,6 @@ export default function ProfileButton() {
     }, [])
 
     const name = user !== 'none' ? user?.attributes?.nickname?.toLowerCase?.() : null
-    console.log(user)
     const onClick =
         user == null || user == 'none'
             ? () => {
