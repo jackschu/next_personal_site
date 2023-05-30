@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "publish-no-confirm": "amplify publish -y",
     "start": "next start",
     "lint": "next lint"
   },
