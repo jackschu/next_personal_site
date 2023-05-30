@@ -19,6 +19,7 @@ module.exports = {
                 'primary-button': 'var(--color-primary-button)',
                 'secondary-button': 'var(--color-secondary-button)',
                 'secondary-background': 'var(--color-secondary-background)',
+                'muted': 'var(--color-muted)',
                 accent: 'var(--color-accent)',
             },
 

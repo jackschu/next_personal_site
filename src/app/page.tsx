@@ -5,8 +5,7 @@ import HomeLinks from './homeLinks'
 
 export default function Home() {
     return (
-        <main className="flex min-h-screen flex-col items-center justify-between lg:p-24 lg:pt-20">
-            <Header />
+        <>
             <div className="group flex flex-col items-center gap-10 rounded-md pb-14 pt-10 lg:flex-row lg:gap-16 lg:pt-0">
                 <div className="flex flex-row gap-2">
                     <div className="flex flex-col lg:gap-1">
@@ -19,7 +18,7 @@ export default function Home() {
                                 <span className="block h-0.5 max-w-0 bg-accent transition-all duration-500 group-hover:max-w-full"></span>
                             </p>
                         </div>
-                        <p className="text-center text-sm opacity-60">(jack schumann)</p>
+                        <p className="text-center text-sm text-muted">(jack schumann)</p>
                     </div>
                 </div>
                 <Image
@@ -31,6 +30,9 @@ export default function Home() {
                 />
             </div>
             <HomeLinks />
-        </main>
+            <a href="/privacy" className="p-4 text-xs text-muted">
+                (privacy policy)
+            </a>
+        </>
     )
 }

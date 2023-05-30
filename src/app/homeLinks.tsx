@@ -18,7 +18,7 @@ function SingleLink({ url, title, description }: Props) {
                     -&gt;
                 </span>
             </h2>
-            <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>{description}</p>
+            <p className={`m-0 max-w-[30ch] text-sm text-muted`}>{description}</p>
         </a>
     )
 }
