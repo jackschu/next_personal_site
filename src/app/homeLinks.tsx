@@ -43,7 +43,7 @@ export default function HomeLinks() {
             />
             <SingleLink
                 title="version 1"
-                url="http://jackschumann.com"
+                url="http://v0.jackschumann.com"
                 description="my site had a proto-site, you can go check it out."
             />
         </div>

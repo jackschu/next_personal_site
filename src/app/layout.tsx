@@ -19,7 +19,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     dangerouslySetInnerHTML={{
                         __html: `
 ;(function () {
-    if (window.matchMedia('(prefers-color-scheme:dark)').matches) {
+    if (localStorage.getItem('isDarkMode') === 'true' || (localStorage.getItem('isDarkMode') == null && window.matchMedia('(prefers-color-scheme:dark)').matches)) {
+console.log("here")
         document.documentElement.classList.add('dark')
     }
 })()

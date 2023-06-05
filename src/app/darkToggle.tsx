@@ -13,7 +13,12 @@ export default function DarkToggle() {
             setIsDark(prefersDark)
         }
     )
-    const [isDark, setIsDark] = useState(systemPrefersDark)
+    const localValue =
+        typeof window !== 'undefined' ? localStorage.getItem('isDarkMode') : undefined
+    const [isDark, setIsDark] = useState(
+        localValue === 'true' || (localValue == null && systemPrefersDark)
+    )
+
     useEffect(() => {
         if (isDark) {
             document.documentElement.classList.add('dark')
@@ -23,7 +28,10 @@ export default function DarkToggle() {
     }, [isDark])
     return (
         <button
-            onClick={() => setIsDark(!isDark)}
+            onClick={() => {
+                localStorage.setItem('isDarkMode', !isDark ? 'true' : 'false')
+                setIsDark(!isDark)
+            }}
             className="h-7 rounded-full bg-secondary-button px-2 text-sm [text-shadow:_0_4px_0_rgb(0_0_0_/_40%)] lg:h-12 lg:px-4 lg:text-base"
         >
             {'🔦'}
