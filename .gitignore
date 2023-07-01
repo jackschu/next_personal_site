@@ -111,3 +111,8 @@ flycheck_*.el
 
 
 # End of Emacs
+
+
+# sst
+.sst/*
+!.sst/types/
