@@ -115,4 +115,5 @@ flycheck_*.el
 
 # sst
 .sst/*
+.open-next/  #IDK if this is good or not
 !.sst/types/
