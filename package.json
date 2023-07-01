@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "sst bind next dev",
     "build": "next build",
     "publish-no-confirm": "amplify publish -y",
     "start": "next start",
@@ -12,6 +12,7 @@
   "dependencies": {
     "@aws-amplify/auth": "^5.3.7",
     "@aws-amplify/core": "^5.3.1",
+    "@aws-sdk/s3-request-presigner": "^3.363.0",
     "@types/node": "20.1.4",
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
@@ -29,6 +30,9 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
-    "prettier-plugin-tailwindcss": "^0.3.0"
+    "aws-cdk-lib": "2.84.0",
+    "constructs": "10.1.156",
+    "prettier-plugin-tailwindcss": "^0.3.0",
+    "sst": "^2.18.1"
   }
 }
