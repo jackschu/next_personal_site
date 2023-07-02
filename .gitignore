@@ -117,3 +117,8 @@ flycheck_*.el
 .sst/*
 !.sst/types/
 .open-next/
+
+
+# creds
+
+/credentials/

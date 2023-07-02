@@ -9,7 +9,7 @@ function SingleLink({ url, title, description }: Props) {
         <a
             href={url}
             className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-            target="_blank"
+            target={url === '/' ? undefined : '_blank'}
             rel="noopener noreferrer"
         >
             <h2 className={`mb-3 text-2xl font-semibold`}>
@@ -33,12 +33,12 @@ export default function HomeLinks() {
             />
             <SingleLink
                 title="blog"
-                url=""
+                url="/"
                 description="lorem ipsum is the best, but i hope my content will be better."
             />
             <SingleLink
                 title="directions"
-                url=""
+                url="/"
                 description="parking instructions are included (maybe)"
             />
             <SingleLink
