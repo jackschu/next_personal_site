@@ -121,4 +121,4 @@ flycheck_*.el
 
 # creds
 
-/credentials/
+credentials/

@@ -3,9 +3,10 @@ import { ApiHandler } from 'sst/node/api'
 import { useSession } from 'sst/node/auth'
 import { DynamoDBClient, GetItemCommand } from '@aws-sdk/client-dynamodb'
 import { marshall, unmarshall } from '@aws-sdk/util-dynamodb'
+import { AuthSessionType } from '../sessionTypes'
 
 export const handler = ApiHandler(async () => {
-    const session = useSession()
+    const session = useSession<AuthSessionType>()
 
     //@ts-ignore bug from sst auth?
     if (session.type !== 'user') {
@@ -15,10 +16,8 @@ export const handler = ApiHandler(async () => {
     const ddb = new DynamoDBClient({})
     const data = await ddb.send(
         new GetItemCommand({
-            //@ts-ignore cant see binding
             TableName: Table.users.tableName,
             Key: marshall({
-                //@ts-ignore cant see binding
                 userId: session.properties.userID,
             }),
         })
