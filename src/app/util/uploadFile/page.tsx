@@ -10,7 +10,6 @@ export default function UploadPage() {
         const command = new PutObjectCommand({
             ACL: 'public-read',
             Key: crypto.randomUUID(),
-            //@ts-ignore
             Bucket: Bucket.public.bucketName,
         })
         const url = await getSignedUrl(new S3Client({}), command)

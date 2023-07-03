@@ -1,8 +1,8 @@
-import { Table } from "sst/node/table";
-import { NextjsSite } from 'sst/constructs'
+import { Table } from 'sst/node/table'
 import { AuthHandler, GoogleAdapter, Session } from 'sst/node/auth'
 import { DynamoDBClient, PutItemCommand } from '@aws-sdk/client-dynamodb'
 import { marshall } from '@aws-sdk/util-dynamodb'
+import { AuthSessionType } from '../sessionTypes'
 
 const GOOGLE_CLIENT_ID = '6143585867-3klj82trtqujqrdqu2g9sbkmv8ofejb3.apps.googleusercontent.com'
 
@@ -26,16 +26,16 @@ export const handler = AuthHandler({
                         }),
                     })
                 )
-//                console.log(NextjsSite)
-
-                return Session.parameter({
-                    redirect: 'http://localhost:3000',
-//                    redirect:(NextjsSite as any).site.url,
-                    //@ts-ignore
-                    type: 'user',
+                const properties: AuthSessionType = {
                     properties: {
                         userID: claims.sub,
                     },
+                }
+                return Session.parameter({
+                    redirect: process.env.REDIRECT_URL ?? 'https://www.jackschumann.com',
+                    //@ts-ignore bug from sst auth?
+                    type: 'user',
+                    ...properties,
                 })
             },
         }),

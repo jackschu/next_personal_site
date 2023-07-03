@@ -10,7 +10,8 @@ export default {
         }
     },
     stacks(app) {
-        if (app.stage === 'devbox') {
+        const isDev = app.stage === 'devbox'
+        if (isDev) {
             app.setDefaultRemovalPolicy('destroy')
         }
         app.stack(function Site({ stack }) {
@@ -43,7 +44,7 @@ export default {
                         certificate: Certificate.fromCertificateArn(
                             stack,
                             'jackschumannCert',
-                            'arn:aws:acm:us-east-1:311526342890:certificate/329d1754-512d-438c-bc83-a5981ad0ed2f'
+                            'arn:aws:acm:us-east-1:311526342890:certificate/1ae597dd-4676-40ed-904d-e4ccb207153b'
                         ),
                     },
                 },
@@ -57,6 +58,9 @@ export default {
                 authenticator: {
                     handler: 'packages/functions/src/auth.handler',
                     bind: [site],
+                    environment: {
+                        REDIRECT_URL: isDev ? 'http://localhost:3000' : 'https://www.jackschumann.com',
+                    },
                 },
             })
             auth.attach(stack, {
