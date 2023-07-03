@@ -4,16 +4,29 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 export default function ProfileButton() {
-    const [session, setSession] = useState(
-        //        () => null
-        typeof window !== 'undefined' ? localStorage.getItem('session') : null
-    )
+    const [session, setSession] = useState<null | { name: string }>(null)
+    const [isLoading, setLoading] = useState(true)
+    const getUserInfo = async (session: string) => {
+        try {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/session`, {
+                method: 'GET',
+                headers: {
+                    Authorization: `Bearer ${session}`,
+                },
+            })
+            return response.json()
+        } catch (error) {
+            alert(error)
+        }
+    }
 
-    const getSession = () => {
+    const getSession = async () => {
         const token = localStorage.getItem('session')
         if (token) {
-            setSession(token)
+            const user = await getUserInfo(token)
+            if (user) setSession(user)
         }
+        setLoading(false)
     }
 
     const signOut = () => {
@@ -29,18 +42,18 @@ export default function ProfileButton() {
         const search = window.location.search
         const params = new URLSearchParams(search)
         const token = params.get('token')
+        console.log('login attempt', { token })
         if (token) {
             localStorage.setItem('session', token)
             window.location.replace(window.location.origin)
-            setSession(token)
         }
     }, [])
 
-    const isStale = false
-    const name = session ? session.slice(0, 3) : null
+    const isStale = isLoading
+    const name = session ? session.name : null
     const text = name == null ? 'sign in' : `hi ${name}`
 
-    const login_link = `${process.env.NEXT_PUBLIC_API_URL}/auth/google/authorize`
+    const loginLink = `${process.env.NEXT_PUBLIC_API_URL}/auth/google/authorize`
     const router = useRouter()
 
     return (
@@ -51,7 +64,7 @@ export default function ProfileButton() {
                 session
                     ? () => signOut()
                     : (e) => {
-                          router.push(login_link)
+                          router.push(loginLink)
                       }
             }
             className={`has-tooltip ${
