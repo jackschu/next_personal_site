@@ -17,7 +17,7 @@ export const handler = AuthHandler({
                 const ddb = new DynamoDBClient({})
                 await ddb.send(
                     new PutItemCommand({
-                        TableName: (Table as any).users.tableName,
+                        TableName: Table.usersStack.tableName,
                         Item: marshall({
                             userId: claims.sub,
                             email: claims.email,

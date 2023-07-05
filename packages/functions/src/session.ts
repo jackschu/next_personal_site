@@ -16,7 +16,7 @@ export const handler = ApiHandler(async () => {
     const ddb = new DynamoDBClient({})
     const data = await ddb.send(
         new GetItemCommand({
-            TableName: Table.users.tableName,
+            TableName: Table.usersStack.tableName,
             Key: marshall({
                 userId: session.properties.userID,
             }),
