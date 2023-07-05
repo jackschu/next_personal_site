@@ -3,10 +3,13 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 
+const disableCloud = true //@nocommit
+
 export default function ProfileButton() {
     const [session, setSession] = useState<null | { name: string }>(null)
     const [isLoading, setLoading] = useState(true)
-    const getUserInfo = async (session: string) => {
+    const getUserInfo = async (session: string): Record<string, unknown> | undefined => {
+        if (disableCloud) return
         try {
             const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/session`, {
                 method: 'GET',
@@ -14,9 +17,10 @@ export default function ProfileButton() {
                     Authorization: `Bearer ${session}`,
                 },
             })
-            return response.json()
+            return await response.json()
         } catch (error) {
-            alert(error)
+            console.error(error)
+            return
         }
     }
 
