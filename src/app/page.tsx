@@ -5,10 +5,10 @@ import HomeLinks from './homeLinks'
 
 export default function Home() {
     return (
-        <>
-            <div className="group flex flex-col items-center gap-10 rounded-md pb-14 pt-10 lg:flex-row lg:gap-16 lg:pt-0">
+        <div className="flex flex-col justify-evenly">
+            <div className="group flex flex-col justify-center gap-10 rounded-md pb-14 pt-10 lg:flex-row lg:gap-16 lg:pt-0">
                 <div className="flex flex-row gap-2">
-                    <div className="flex flex-col lg:gap-1">
+                    <div className="flex flex-col justify-center lg:gap-1">
                         <div className="flex flex-row gap-2">
                             <div className="group-hover:animate-wiggle">
                                 <p className="text-center text-4xl lg:text-5xl">{'👋'}</p>
@@ -30,9 +30,6 @@ export default function Home() {
                 />
             </div>
             <HomeLinks />
-            <a href="/privacy" className="p-4 text-xs text-muted">
-                (privacy policy)
-            </a>
-        </>
+        </div>
     )
 }

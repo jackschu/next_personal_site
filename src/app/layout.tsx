@@ -31,7 +31,10 @@ console.log("here")
             <body className={inter.className}>
                 <main className="flex min-h-screen flex-col items-center justify-between lg:px-24 lg:pt-20">
                     <Header />
-                    {children}
+                    <div className="flex flex-grow">{children}</div>
+                    <a href="/privacy" className="p-4 text-xs text-muted">
+                        (privacy policy)
+                    </a>
                 </main>
             </body>
         </html>

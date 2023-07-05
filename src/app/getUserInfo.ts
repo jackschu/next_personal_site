@@ -10,6 +10,7 @@ const getUserInfo = async (session: string) => {
         })
         return response.json()
     } catch (error) {
+        console.error(error)
         alert(error)
     }
 }
