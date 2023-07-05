@@ -1,0 +1,1 @@
+export const isDev = (stage: string) => stage === 'devbox'

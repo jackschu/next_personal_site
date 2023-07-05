@@ -7,7 +7,8 @@
     "build": "next build",
     "publish-no-confirm": "amplify publish -y",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "sst build --stage prod && next lint && tsc --noEmit && sst deploy --stage prod"
   },
   "dependencies": {
     "@aws-amplify/auth": "^5.3.7",
@@ -30,13 +31,13 @@
     "react-dom": "18.2.0",
     "react-responsive": "^9.0.2",
     "sharp": "^0.32.1",
-    "tailwindcss": "3.3.2",
-    "typescript": "5.0.4"
+    "tailwindcss": "3.3.2"
   },
   "devDependencies": {
     "aws-cdk-lib": "2.84.0",
     "constructs": "10.1.156",
     "prettier-plugin-tailwindcss": "^0.3.0",
-    "sst": "^2.18.1"
+    "sst": "^2.18.1",
+    "typescript": "^5.1.6"
   }
 }
