@@ -8,7 +8,7 @@ const disableCloud = true //@nocommit
 export default function ProfileButton() {
     const [session, setSession] = useState<null | { name: string }>(null)
     const [isLoading, setLoading] = useState(true)
-    const getUserInfo = async (session: string): Record<string, unknown> | undefined => {
+    const getUserInfo = async (session: string): Promise<Record<string, unknown> | undefined> => {
         if (disableCloud) return
         try {
             const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/session`, {
@@ -28,7 +28,8 @@ export default function ProfileButton() {
         const token = localStorage.getItem('session')
         if (token) {
             const user = await getUserInfo(token)
-            if (user) setSession(user)
+            if (user && 'name' in user && typeof user.name === 'string')
+                setSession({ name: user.name })
         }
         setLoading(false)
     }

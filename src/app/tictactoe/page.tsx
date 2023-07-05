@@ -11,7 +11,7 @@ export default function TicTacToe() {
         setBoard(newBoard)
     }
 
-    const getButton = (isX, idx) => {
+    const getButton = (isX: boolean | null, idx: number) => {
         return (
             <button key={idx} onClick={() => onClick(idx)}>
                 <div className="text-6xl">{isX === null ? '_' : isX ? 'X' : 'O'}</div>
