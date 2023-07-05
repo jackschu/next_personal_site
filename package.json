@@ -7,7 +7,7 @@
     "build": "next build",
     "publish-no-confirm": "amplify publish -y",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "tsc --noEmit && next lint",
     "deploy": "sst build --stage prod && next lint && tsc --noEmit && sst deploy --stage prod"
   },
   "dependencies": {
