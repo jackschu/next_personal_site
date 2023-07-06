@@ -42,9 +42,10 @@ export function AuthStack({ stack }: StackContext) {
     stack.addOutputs({
         ApiEndpoint: api.url,
     })
+
     auth.attach(stack, {
         api,
         prefix: '/auth',
     })
-    return { api }
+    return { api, auth }
 }

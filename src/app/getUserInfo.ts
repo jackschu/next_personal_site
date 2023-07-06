@@ -1,6 +1,7 @@
-'use server'
-
-const getUserInfo = async (session: string) => {
+export const getUserInfo = async (
+    session: string
+): Promise<Record<string, unknown> | undefined> => {
+    // if (true) return
     try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/session`, {
             method: 'GET',
@@ -8,9 +9,9 @@ const getUserInfo = async (session: string) => {
                 Authorization: `Bearer ${session}`,
             },
         })
-        return response.json()
+        return await response.json()
     } catch (error) {
         console.error(error)
-        alert(error)
+        return
     }
 }
