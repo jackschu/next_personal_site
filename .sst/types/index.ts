@@ -32,6 +32,28 @@ declare module "sst/node/auth" {
       publicKey: string;
     }
   }
+}import "sst/node/table";
+declare module "sst/node/table" {
+  export interface TableResources {
+    "Connections": {
+      tableName: string;
+    }
+  }
+}import "sst/node/table";
+declare module "sst/node/table" {
+  export interface TableResources {
+    "GameData": {
+      tableName: string;
+    }
+  }
+}import "sst/node/websocket-api";
+declare module "sst/node/websocket-api" {
+  export interface WebSocketApiResources {
+    "Api": {
+      url: string;
+      httpsUrl: string;
+    }
+  }
 }import "sst/node/site";
 declare module "sst/node/site" {
   export interface NextjsSiteResources {

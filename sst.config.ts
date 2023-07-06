@@ -4,6 +4,7 @@ import { NextjsSite, use } from 'sst/constructs'
 import { RandomBucket } from './stacks/RandomBucket'
 import { isDev } from './stacks/utils'
 import { AuthStack } from './stacks/AuthStack'
+import { TicTacToeStack } from './stacks/TicTacToeStack'
 
 export default {
     config(_input) {
@@ -19,9 +20,11 @@ export default {
 
         app.stack(RandomBucket)
             .stack(AuthStack)
+            .stack(TicTacToeStack)
             .stack(function Site({ stack }) {
                 const { bucket } = use(RandomBucket)
                 const { api } = use(AuthStack)
+                const { wsapi } = use(TicTacToeStack)
 
                 const site = new NextjsSite(stack, 'site', {
                     customDomain: {
@@ -37,6 +40,7 @@ export default {
                     },
                     environment: {
                         NEXT_PUBLIC_API_URL: api.url,
+                        NEXT_PUBLIC_WS_API_URL: wsapi.url,
                     },
                     bind: [bucket],
                 })
