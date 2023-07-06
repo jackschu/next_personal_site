@@ -19,7 +19,7 @@ export default function TicTacToe() {
                 ws.onmessage = (msg) => {
                     const data = msg.data as string
                     console.log(data)
-                    setBoard(data.split('').map((x) => (x === ' ' ? null : x)))
+                    setBoard(data.split('').map((x) => (x === ' ' ? null : x === 'X')))
                 }
                 return ws
             }
@@ -27,18 +27,18 @@ export default function TicTacToe() {
     }, [token])
 
     const onClick = (i: number) => {
-        const newBoard = [...board]
-        newBoard[i] = isMyPlayerX
-        if (ws && ws.OPEN) {
+        //        const newBoard = [...board]
+        //newBoard[i] = isMyPlayerX
+        if (ws && ws.readyState === ws.OPEN) {
             ws.send(JSON.stringify({ action: 'sendmessage', data: `${i}` }))
         }
-        setBoard(newBoard)
+        //        setBoard(newBoard)
     }
 
     const getButton = (isX: boolean | null, idx: number) => {
         return (
             <button key={idx} onClick={() => onClick(idx)}>
-                <div className="text-6xl">{board[idx] === null ? '_' : board[idx]}</div>
+                <div className="text-6xl">{board[idx] === null ? '_' : board[idx] ? 'X' : 'O'}</div>
             </button>
         )
     }
