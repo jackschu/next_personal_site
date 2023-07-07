@@ -54,8 +54,9 @@ export const main = WebSocketApiHandler(async (event, _ctx) => {
     const otherOUserId = others.Items?.at(0)?.OUserId
     let playerIds: {XUserId: string | undefined, OUserId: string | undefined}
 
+    const out = { statusCode: 200, body: "Connected"}
     if(otherXUserId === incomingUserId || otherOUserId === incomingUserId) {
-        return { statusCode: 200, body: 'Connected'}
+        return out
     }
 
     if(!otherOUserId && !otherXUserId)
@@ -93,5 +94,5 @@ export const main = WebSocketApiHandler(async (event, _ctx) => {
 
     await dynamoDb.put(params).promise()
 
-    return { statusCode: 200, body: 'Connected'}
+    return out
 })
