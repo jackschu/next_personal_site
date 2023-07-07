@@ -15,6 +15,9 @@ export default function ProfileButton() {
             const user = await getUserInfo(token)
             if (user && 'name' in user && typeof user.name === 'string')
                 setSession({ name: user.name })
+            else {
+                setToken(null)
+            }
         }
         setLoading(false)
     }

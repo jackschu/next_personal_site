@@ -38,6 +38,7 @@ export function TicTacToeStack({ stack }: StackContext) {
             $connect: 'packages/functions/src/webSocketConnect.main',
             $disconnect: 'packages/functions/src/webSocketDisconnect.main',
             sendmessage: 'packages/functions/src/sendMessage.main',
+            getroominfo: 'packages/functions/src/getRoomInfo.main',
         },
     })
     const { auth } = use(AuthStack)
