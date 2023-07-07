@@ -31,6 +31,7 @@ export const main = WebSocketApiHandler(async (event, _ctx) => {
             connectionId,
             userId: incomingUserId,
             roomId: roomId,
+            expireAt: Math.floor(Date.now() / 1000) + 60*60*24,
         },
     }
 
@@ -47,7 +48,7 @@ export const main = WebSocketApiHandler(async (event, _ctx) => {
 //                ':mine': incomingUserId ,
                 ':roomid': roomId,
              },
-        })
+         })
         .promise()
 
     const otherXUserId = others.Items?.at(0)?.XUserId
@@ -87,6 +88,7 @@ export const main = WebSocketApiHandler(async (event, _ctx) => {
             boardState: '         ',
             winnerUserId: '',
             roomId: roomId,
+            expireAt: Math.floor(Date.now() / 1000) + 60*60*3,
             ...playerIds,
         },
         //        ConditionExpression: 'attribute_not_exists(roomId)'
