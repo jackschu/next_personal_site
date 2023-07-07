@@ -1,21 +1,25 @@
 'use client'
 import { useEffect, useMemo, useState } from 'react'
+import { useReadLocalStorage } from 'usehooks-ts'
+import { generateId } from 'zoo-ids'
 
 export default function TicTacToe() {
     const [board, setBoard] = useState<(boolean | null)[]>(Array(9).fill(null))
-    const [token, setToken] = useState<string | null>(null)
+    const [roomId, setRoomId] = useState<string | null>(null)
+    const [webs, setWebSocket] = useState(null)
+    const [token, setToken] = useState(null)
     const isMyPlayerX = true
-
-    useEffect(() => {
-        setToken(localStorage.getItem('session'))
-    }, [])
+    const real_token = useReadLocalStorage<string | null>('session')
+    useEffect(() => setToken(real_token), [real_token])
 
     const ws = useMemo(() => {
         if (token) {
             if (process.env.NEXT_PUBLIC_WS_API_URL == null) {
                 console.error('NEXT_PUBLIC_WS_API_URL not set')
             } else {
-                const ws = new WebSocket(process.env.NEXT_PUBLIC_WS_API_URL, [token])
+                const ws = new WebSocket(`${process.env.NEXT_PUBLIC_WS_API_URL}?roomId=temp`, [
+                    token,
+                ])
                 ws.onmessage = (msg) => {
                     const data = msg.data as string
                     console.log(data)
@@ -46,6 +50,7 @@ export default function TicTacToe() {
     return (
         <>
             <div className="self-center pb-28">
+                {!token && <h3>sign in to play</h3>}
                 <div className="grid grid-flow-col grid-rows-3 gap-2">
                     {board.map((isX, i) => getButton(isX, i))}
                 </div>

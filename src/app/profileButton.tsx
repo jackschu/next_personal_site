@@ -3,13 +3,14 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { getUserInfo } from './getUserInfo'
+import { useLocalStorage } from 'usehooks-ts'
 
 export default function ProfileButton() {
     const [session, setSession] = useState<null | { name: string }>(null)
     const [isLoading, setLoading] = useState(true)
+    const [token, setToken] = useLocalStorage<string | null>('session', null)
 
     const getSession = async () => {
-        const token = localStorage.getItem('session')
         if (token) {
             const user = await getUserInfo(token)
             if (user && 'name' in user && typeof user.name === 'string')
@@ -19,7 +20,7 @@ export default function ProfileButton() {
     }
 
     const signOut = () => {
-        localStorage.removeItem('session')
+        setToken(null)
         setSession(null)
     }
 
@@ -30,10 +31,9 @@ export default function ProfileButton() {
     useEffect(() => {
         const search = window.location.search
         const params = new URLSearchParams(search)
-        const token = params.get('token')
-        console.log('login attempt', { token })
-        if (token) {
-            localStorage.setItem('session', token)
+        const param_token = params.get('token')
+        if (param_token) {
+            setToken(param_token)
             window.location.replace(window.location.origin)
         }
     }, [])
