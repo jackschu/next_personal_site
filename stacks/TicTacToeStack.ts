@@ -7,7 +7,9 @@ export function TicTacToeStack({ stack }: StackContext) {
             connectionId: 'string',
             roomId: 'string',
             userId: 'string',
+            expireAt: 'number',
         },
+        timeToLiveAttribute: "expireAt",
         cdk: {
             id: 'connectionsTable',
         },
@@ -21,7 +23,9 @@ export function TicTacToeStack({ stack }: StackContext) {
             winnerUserId: 'string',
             XUserId: 'string',
             OUserId: 'string',
+            expireAt: 'number',
         },
+        timeToLiveAttribute: "expireAt",
         cdk: {
             id: 'gameDataTable',
         },
