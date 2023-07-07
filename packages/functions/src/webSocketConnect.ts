@@ -3,6 +3,8 @@ import { useSession } from 'sst/node/auth'
 import { WebSocketApiHandler } from 'sst/node/websocket-api'
 import { Table } from 'sst/node/table'
 import { AuthSessionType } from '../sessionTypes'
+import { generateId } from 'zoo-ids'
+
 const dynamoDb = new DynamoDB.DocumentClient()
 
 export const main = WebSocketApiHandler(async (event, _ctx) => {
@@ -13,13 +15,20 @@ export const main = WebSocketApiHandler(async (event, _ctx) => {
         return { statusCode: 500, body: 'Not authenticated', session: JSON.stringify(session) }
     }
     const TableName = Table.Connections.tableName
-    const roomId = '1'
+    const connectionId = event.requestContext.connectionId
+    let roomId: string;
+    if(typeof event.queryStringParameters?.roomId === "string"){
+        roomId = event.queryStringParameters?.roomId
+    } else {
+        roomId = generateId(connectionId, { caseStyle: 'titlecase' });
+    }
+
     const incomingUserId = session.properties.userID
 
     const connectionParams = {
         TableName,
         Item: {
-            connectionId: event.requestContext.connectionId,
+            connectionId,
             userId: incomingUserId,
             roomId: roomId,
         },
