@@ -7,11 +7,17 @@ import { useWebSocket } from 'react-use-websocket/dist/lib/use-websocket'
 
 export default function Game({ slug, token }: { slug?: string; token: string }) {
     const [board, setBoard] = useState<(boolean | null)[]>(Array(9).fill(null))
+    const [isPlayerX, setIsPlayerX] = useState<boolean | null>(null)
     const [roomId, setRoomId] = useState<string | null>(slug ?? null)
 
     const onClick = (i: number) => {
         if (readyState === 1) {
             sendMessage(JSON.stringify({ action: 'sendmessage', data: `${i}` }))
+        }
+        if (isPlayerX) {
+            const newBoard = [...board]
+            newBoard[i] = isPlayerX
+            setBoard(newBoard)
         }
     }
 
@@ -46,6 +52,12 @@ export default function Game({ slug, token }: { slug?: string; token: string }) 
                         if (slug == null) router.push(pathname + '/' + data.roomId)
                         setRoomId(data.roomId)
                     } else console.error('failed to parse game Update')
+
+                    if (data.yourUserId && typeof data.yourUserId === 'string') {
+                        if (data.XUserId === data.yourUserId) setIsPlayerX(true)
+                        else if (data.OUserId === data.yourUserId) setIsPlayerX(false)
+                        else console.error('failed to parse game (player id list)')
+                    } else console.error('failed to parse game update (your userid)')
 
                     if (data.boardState && typeof data.boardState === 'string')
                         setBoardData(data.boardState)
