@@ -1,14 +1,17 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { getUserInfo } from './getUserInfo'
 import { useLocalStorage } from 'usehooks-ts'
 
 export default function ProfileButton() {
     const [session, setSession] = useState<null | { name: string }>(null)
     const [isLoading, setLoading] = useState(true)
+    const pathname = usePathname()
     const [token, setToken] = useLocalStorage<string | null>('session', null)
+    const [redirectURL, setRedirectURL] = useLocalStorage<string | null>('redirect', null)
+    const searchParams = useSearchParams()
 
     const getSession = async () => {
         if (token) {
@@ -27,26 +30,28 @@ export default function ProfileButton() {
         setSession(null)
     }
 
-    useEffect(() => {
-        getSession()
-    }, [])
+    const router = useRouter()
 
     useEffect(() => {
-        const search = window.location.search
-        const params = new URLSearchParams(search)
-        const param_token = params.get('token')
+        getSession()
+    }, [token])
+
+    const param_token = searchParams.get('token')
+    useEffect(() => {
         if (param_token) {
             setToken(param_token)
-            window.location.replace(window.location.origin)
+            if (redirectURL) {
+                setRedirectURL(null)
+                router.push(redirectURL)
+            }
         }
-    }, [])
+    }, [param_token, searchParams, router, setRedirectURL, redirectURL, setToken])
 
     const isStale = isLoading
     const name = session ? session.name : null
     const text = name == null ? 'sign in' : `hi ${name}`
 
     const loginLink = `${process.env.NEXT_PUBLIC_API_URL}/auth/google/authorize`
-    const router = useRouter()
 
     return (
         <button
@@ -56,6 +61,11 @@ export default function ProfileButton() {
                 session
                     ? () => signOut()
                     : (e) => {
+                          if (pathname !== '/') {
+                              setRedirectURL(window.location.href)
+                          } else {
+                              setRedirectURL(window.location.origin)
+                          }
                           router.push(loginLink)
                       }
             }
