@@ -1,6 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Header from './header'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -32,9 +33,9 @@ console.log("here")
                 <main className="flex min-h-screen flex-col items-center justify-between lg:px-24 lg:pt-20">
                     <Header />
                     <div className="flex flex-grow">{children}</div>
-                    <a href="/privacy" className="p-4 text-xs text-muted">
+                    <Link href="/privacy" className="p-4 text-xs text-muted">
                         (privacy policy)
-                    </a>
+                    </Link>
                 </main>
             </body>
         </html>
