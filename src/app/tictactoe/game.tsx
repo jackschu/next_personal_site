@@ -94,7 +94,7 @@ export default function Game({ slug, token }: { slug?: string; token: string }) 
                             if (window === undefined) {
                                 return
                             }
-                            copy(`${window.location.host}/tictactoe/${roomId}`)
+                            copy(`${window.location.origin}/tictactoe/${roomId}`)
                         }}
                         className="mt-3 h-7 self-center rounded-full bg-secondary-button px-2 text-sm lg:h-12 lg:px-4 lg:text-base"
                     >
