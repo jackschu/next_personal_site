@@ -1,6 +1,12 @@
 import Link from 'next/link'
 import DarkToggle from './darkToggle'
 import ProfileButton from './profileButton'
+import ProfileButtonRender from './profileButtonRender'
+import { Suspense } from 'react'
+
+function SearchBarFallback() {
+    return <></>
+}
 
 export default function Header() {
     return (
@@ -16,7 +22,10 @@ export default function Header() {
                 </div>
                 <div className="">
                     <DarkToggle />
-                    <ProfileButton />
+
+                    <Suspense fallback={<ProfileButtonRender disabled={true} />}>
+                        <ProfileButton />
+                    </Suspense>
                 </div>
             </div>
         </div>

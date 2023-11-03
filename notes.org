@@ -1,0 +1,5 @@
+* troubleshooting
+  - GCP: Error 400: redirect_uri_mismatch
+    + add to https://console.cloud.google.com/apis/credentials/
+
+

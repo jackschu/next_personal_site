@@ -4,49 +4,63 @@ declare module "sst/node/config" {
     APP: string;
     STAGE: string;
   }
-}import "sst/node/bucket";
+}
+
+import "sst/node/bucket";
 declare module "sst/node/bucket" {
   export interface BucketResources {
     "randomPublicBucketStack": {
       bucketName: string;
     }
   }
-}import "sst/node/table";
+}
+
+import "sst/node/table";
 declare module "sst/node/table" {
   export interface TableResources {
     "usersStack": {
       tableName: string;
     }
   }
-}import "sst/node/api";
+}
+
+import "sst/node/api";
 declare module "sst/node/api" {
   export interface ApiResources {
     "apiStack": {
       url: string;
     }
   }
-}import "sst/node/auth";
+}
+
+import "sst/node/auth";
 declare module "sst/node/auth" {
   export interface AuthResources {
     "authStack": {
       publicKey: string;
     }
   }
-}import "sst/node/table";
+}
+
+import "sst/node/table";
 declare module "sst/node/table" {
   export interface TableResources {
     "Connections": {
       tableName: string;
     }
   }
-}import "sst/node/table";
+}
+
+import "sst/node/table";
 declare module "sst/node/table" {
   export interface TableResources {
     "GameData": {
       tableName: string;
     }
   }
-}import "sst/node/websocket-api";
+}
+
+import "sst/node/websocket-api";
 declare module "sst/node/websocket-api" {
   export interface WebSocketApiResources {
     "Api": {
@@ -54,7 +68,9 @@ declare module "sst/node/websocket-api" {
       httpsUrl: string;
     }
   }
-}import "sst/node/site";
+}
+
+import "sst/node/site";
 declare module "sst/node/site" {
   export interface NextjsSiteResources {
     "site": {
@@ -62,3 +78,4 @@ declare module "sst/node/site" {
     }
   }
 }
+

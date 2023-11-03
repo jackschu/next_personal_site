@@ -8,7 +8,7 @@ export function AuthStack({ stack }: StackContext) {
             userId: 'string',
         },
         cdk: {
-            id: 'usersTableID',
+            id: 'usersTableID_v2',
         },
         primaryIndex: { partitionKey: 'userId' },
     })
@@ -35,9 +35,9 @@ export function AuthStack({ stack }: StackContext) {
                     : 'https://www.jackschumann.com',
             },
         },
-        cdk: {
-            id: 'authID',
-        },
+        // cdk: {
+        //     id: 'authID',
+        // },
     })
     stack.addOutputs({
         ApiEndpoint: api.url,
