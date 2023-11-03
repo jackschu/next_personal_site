@@ -25,9 +25,9 @@
     "aws-lambda": "^1.0.7",
     "encoding": "^0.1.13",
     "eslint": "8.40.0",
-    "eslint-config-next": "13.4.2",
-    "next": "13.4.2",
-    "postcss": "8.4.23",
+    "eslint-config-next": "14.0.1",
+    "next": "14.0.1",
+    "postcss": "^8.4.31",
     "proxy-agent": "^6.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -40,10 +40,11 @@
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.119",
-    "aws-cdk-lib": "2.84.0",
-    "constructs": "10.1.156",
+    "aws-cdk-lib": "2.101.1",
+    "constructs": "10.2.69",
+    "prettier": "2.8.8",
     "prettier-plugin-tailwindcss": "^0.3.0",
-    "sst": "^2.18.1",
+    "sst": "2.33.4",
     "typescript": "^5.1.6"
   }
 }
