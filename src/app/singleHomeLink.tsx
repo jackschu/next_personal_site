@@ -12,13 +12,14 @@ type Props = {
     hasRoomSuffix?: boolean
 }
 
-function SingleLink({ url, newtab, title, description, hasRoomSuffix }: Props) {
+export default function SingleLink({ url, newtab, title, description, hasRoomSuffix }: Props) {
     const [roomId, setRoomId] = useState<string | null>(null)
     useEffect(() => {
-        setRoomId(generateId(Date.now(), { caseStyle: 'titlecase' }))
-    })
+        const room_id = generateId(Date.now(), { caseStyle: 'titlecase' })
+        setRoomId(room_id)
+    }, [])
     if (hasRoomSuffix) {
-        url = `url/${roomId}`
+        url = `${url}/${roomId}`
     }
     return (
         <Link
