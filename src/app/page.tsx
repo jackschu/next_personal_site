@@ -7,7 +7,7 @@ export default function Home() {
     return (
         <div className="flex flex-col justify-evenly">
             <div className="group flex flex-col justify-center gap-10 rounded-md pb-14 pt-10 lg:flex-row lg:gap-16 lg:pt-0">
-                <div className="flex flex-row gap-2">
+                <div className="flex flex-row justify-center gap-2">
                     <div className="flex flex-col justify-center lg:gap-1">
                         <div className="flex flex-row gap-2">
                             <div className="group-hover:animate-wiggle">
